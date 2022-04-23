@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "api",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/TradeWithIt/API",
+      "state" : {
+        "revision" : "f37d7ce519316a9bee7ccb912f4c542d88b51bd2",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "cryptoswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
+      "state" : {
+        "revision" : "4c4662dcff510fe0c74323279711daed16f08528",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 2
+}
