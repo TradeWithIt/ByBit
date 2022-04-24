@@ -10,8 +10,8 @@ import API
 
 public struct BybitClient: ClientProtocol {
     public var environment: BybitEnvironment
-    public let `public`: BybitPublicClient
     public let timeoutInterval: TimeInterval
+    public let `public`: BybitPublicClient
     
     public init(_ environment: BybitEnvironment, timeoutInterval: TimeInterval = 5, publicTimeoutInterval: TimeInterval = 5) async throws {
         let publicClient = BybitPublicClient(env: environment, timeoutInterval: publicTimeoutInterval)

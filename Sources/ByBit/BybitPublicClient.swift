@@ -8,7 +8,7 @@
 import Foundation
 import API
 
-internal struct BybitPublicClient: ClientProtocol {
+public struct BybitPublicClient: ClientProtocol {
     public let environment: BybitEnvironment
     public let timeoutInterval: TimeInterval
 
