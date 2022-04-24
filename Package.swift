@@ -15,7 +15,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/TradeWithIt/API", branch: "main"),
-//        .package(url: "https://github.com/TradeWithIt/API", from: "1.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", from: "1.5.0"),
     ],
     targets: [
