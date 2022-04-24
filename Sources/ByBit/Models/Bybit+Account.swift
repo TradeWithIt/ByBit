@@ -36,6 +36,22 @@ public enum TimeInForce: String, Codable, CaseIterable {
 }
 
 public struct BybitCreateActiveOrder: Codable {
+    public init(side: BybitSide, symbol: String, orderType: OrderType, qty: Number, timeInForce: TimeInForce, price: Number? = nil, closeOnTrigger: Bool = false, orderLinkId: String? = nil, takeProfit: Number? = nil, stopLoss: Number? = nil, tpTriggerBy: TriggerPriceType = .lastPrice, slTriggerBy: TriggerPriceType = .lastPrice, reduceOnly: Bool = false) {
+        self.side = side
+        self.symbol = symbol
+        self.orderType = orderType
+        self.qty = qty
+        self.timeInForce = timeInForce
+        self.price = price
+        self.closeOnTrigger = closeOnTrigger
+        self.orderLinkId = orderLinkId
+        self.takeProfit = takeProfit
+        self.stopLoss = stopLoss
+        self.tpTriggerBy = tpTriggerBy
+        self.slTriggerBy = slTriggerBy
+        self.reduceOnly = reduceOnly
+    }
+    
     public var side: BybitSide
     public var symbol: String
     /// Active order type
@@ -63,6 +79,16 @@ public struct BybitCreateActiveOrder: Codable {
 }
 
 public struct BybitActiveOrder: Codable {
+    public init(userId: Number, symbol: String, side: BybitSide, orderType: OrderType, qty: Number, price: Number? = nil, timeInForce: TimeInForce) {
+        self.userId = userId
+        self.symbol = symbol
+        self.side = side
+        self.orderType = orderType
+        self.qty = qty
+        self.price = price
+        self.timeInForce = timeInForce
+    }
+    
     public var userId: Number
     public var symbol: String
     public var side: BybitSide
@@ -73,6 +99,35 @@ public struct BybitActiveOrder: Codable {
 }
 
 public struct BybitPosition: Codable {
+    public init(id: Number? = nil, positionIdx: Number, mode: Number, userId: Number, riskId: Number, symbol: String, side: BybitSide, size: Number, positionValue: Number, entryPrice: Number, liqPrice: Number, bustPrice: Number, leverage: Number, autoAddMargin: Number, isIsolated: Bool? = nil, positionMargin: Number, occClosingFee: Number, realisedPnl: Number, cumRealisedPnl: Number, freeQty: Number, tpSlMode: String, deleverageIndicator: Number? = nil, unrealisedPnl: Number? = nil, takeProfit: Number, stopLoss: Number, trailingStop: Number) {
+        self.id = id
+        self.positionIdx = positionIdx
+        self.mode = mode
+        self.userId = userId
+        self.riskId = riskId
+        self.symbol = symbol
+        self.side = side
+        self.size = size
+        self.positionValue = positionValue
+        self.entryPrice = entryPrice
+        self.liqPrice = liqPrice
+        self.bustPrice = bustPrice
+        self.leverage = leverage
+        self.autoAddMargin = autoAddMargin
+        self.isIsolated = isIsolated
+        self.positionMargin = positionMargin
+        self.occClosingFee = occClosingFee
+        self.realisedPnl = realisedPnl
+        self.cumRealisedPnl = cumRealisedPnl
+        self.freeQty = freeQty
+        self.tpSlMode = tpSlMode
+        self.deleverageIndicator = deleverageIndicator
+        self.unrealisedPnl = unrealisedPnl
+        self.takeProfit = takeProfit
+        self.stopLoss = stopLoss
+        self.trailingStop = trailingStop
+    }
+    
     public var id: Number?
     public var positionIdx: Number
     public var mode: Number
@@ -102,6 +157,27 @@ public struct BybitPosition: Codable {
 }
 
 public struct ClosedProfitAndLossRecords: Codable {
+    public init(id: Number, userId: Number, orderId: Number, symbol: String, side: BybitSide, qty: Number, orderPrice: Number, orderType: OrderType, execType: String, closedSize: Number, cumEntryValue: Number, avgEntryPrice: Number, cumExitValue: Number, avgExitPrice: Number, closedPnl: Number, fillCount: Number, leverage: Number, createdAt: Number) {
+        self.id = id
+        self.userId = userId
+        self.orderId = orderId
+        self.symbol = symbol
+        self.side = side
+        self.qty = qty
+        self.orderPrice = orderPrice
+        self.orderType = orderType
+        self.execType = execType
+        self.closedSize = closedSize
+        self.cumEntryValue = cumEntryValue
+        self.avgEntryPrice = avgEntryPrice
+        self.cumExitValue = cumExitValue
+        self.avgExitPrice = avgExitPrice
+        self.closedPnl = closedPnl
+        self.fillCount = fillCount
+        self.leverage = leverage
+        self.createdAt = createdAt
+    }
+    
     public var id: Number
     public var userId: Number
     public var orderId: Number

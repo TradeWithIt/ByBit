@@ -9,11 +9,21 @@ import Foundation
 import API
 
 public struct BybitWssMessage: Encodable {
+    public init(op: String, args: [String]) {
+        self.op = op
+        self.args = args
+    }
+    
     public var op: String
     public var args: [String]
 }
 
 public struct BybitWssResponse<T: Decodable>: Decodable {
+    public init(topic: String, data: T) {
+        self.topic = topic
+        self.data = data
+    }
+    
     public let topic: String
     public let data: T
 }
@@ -33,6 +43,17 @@ extension BybitWssResponse where T == [BybitKlineV2] {
 }
 
 public struct BybitKlineV2: Decodable, Hashable {
+    public init(start: UInt64, end: UInt64, open: Number, high: Number, low: Number, close: Number, volume: Number, turnover: Number) {
+        self.start = start
+        self.end = end
+        self.open = open
+        self.high = high
+        self.low = low
+        self.close = close
+        self.volume = volume
+        self.turnover = turnover
+    }
+    
     public let start: UInt64
     public let end: UInt64
     
@@ -46,10 +67,30 @@ public struct BybitKlineV2: Decodable, Hashable {
 }
 
 public struct BybitDelta<T: Decodable>: Decodable {
+    public init(update: [T]) {
+        self.update = update
+    }
+    
     public let update: [T]
 }
 
 public struct BybitSymbolInformationDelta: Codable {
+    public init(symbol: String, lastPrice: Number?, indexPrice: Number?, markPrice: Number?, openValueE8: Number?, prevPrice24H: Number?, price24HPcnt: Number?, volume24H: Number?, turnover24HE8: Number?, price24HPcntE6: Number?, highPrice24HE4: Number?, lowPrice24HE4: Number?, lastTickDirection: BybitTickDirection?) {
+        self.symbol = symbol
+        self.lastPrice = lastPrice
+        self.indexPrice = indexPrice
+        self.markPrice = markPrice
+        self.openValueE8 = openValueE8
+        self.prevPrice24H = prevPrice24H
+        self.price24HPcnt = price24HPcnt
+        self.volume24H = volume24H
+        self.turnover24HE8 = turnover24HE8
+        self.price24HPcntE6 = price24HPcntE6
+        self.highPrice24HE4 = highPrice24HE4
+        self.lowPrice24HE4 = lowPrice24HE4
+        self.lastTickDirection = lastTickDirection
+    }
+    
     public let symbol: String
     public let lastPrice: Number?
     public let indexPrice: Number?
@@ -66,6 +107,11 @@ public struct BybitSymbolInformationDelta: Codable {
 }
 
 public struct BybitWallet: Decodable, Equatable {
+    public init(walletBalance: Number, availableBalance: Number) {
+        self.walletBalance = walletBalance
+        self.availableBalance = availableBalance
+    }
+    
     public let walletBalance: Number
     /// Available balance = wallet balance - used margin
     public let availableBalance: Number

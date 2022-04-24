@@ -17,6 +17,14 @@ extension String {
 }
 
 public struct BybitEnvironment: ApiEnvironment {
+    public init(api: API, key: String, secret: String, timestamp: TimeInterval? = nil, clockQueryTime: Date? = nil) {
+        self.api = api
+        self.key = key
+        self.secret = secret
+        self.timestamp = timestamp
+        self.clockQueryTime = clockQueryTime
+    }
+    
     public var api: API
     public var key: String
     public var secret: String

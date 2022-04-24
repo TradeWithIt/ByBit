@@ -9,6 +9,22 @@ import Foundation
 import API
 
 public struct BybitCoin: Codable {
+    public init(equity: Number, availableBalance: Number, usedMargin: Number, orderMargin: Number, positionMargin: Number, occClosingFee: Number, occFundingFee: Number, walletBalance: Number, realisedPnl: Number, unrealisedPnl: Number, cumRealisedPnl: Number, givenCash: Number, serviceCash: Number) {
+        self.equity = equity
+        self.availableBalance = availableBalance
+        self.usedMargin = usedMargin
+        self.orderMargin = orderMargin
+        self.positionMargin = positionMargin
+        self.occClosingFee = occClosingFee
+        self.occFundingFee = occFundingFee
+        self.walletBalance = walletBalance
+        self.realisedPnl = realisedPnl
+        self.unrealisedPnl = unrealisedPnl
+        self.cumRealisedPnl = cumRealisedPnl
+        self.givenCash = givenCash
+        self.serviceCash = serviceCash
+    }
+    
     public var equity: Number
     public var availableBalance: Number
     public var usedMargin: Number

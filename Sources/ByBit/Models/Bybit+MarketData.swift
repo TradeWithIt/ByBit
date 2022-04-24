@@ -20,7 +20,7 @@ public enum BybitTickDirection: String, Codable, CaseIterable {
     case priceDrop = "MinusTick"
     case priceDropZero = "ZeroMinusTick"
     
-    var isPositive: Bool {
+    public var isPositive: Bool {
         switch self {
         case .priceRise, .priceRiseZero:
             return true
@@ -71,6 +71,13 @@ public enum BybitPeriod: String, Codable, CaseIterable {
 }
 
 public struct BybitOrderBook: Codable {
+    public init(symbol: String, price: String, side: BybitSide, size: Number) {
+        self.symbol = symbol
+        self.price = price
+        self.side = side
+        self.size = size
+    }
+    
     public let symbol: String
     public let price: String
     public let side: BybitSide
@@ -78,6 +85,18 @@ public struct BybitOrderBook: Codable {
 }
 
 public struct BybitKline: Codable, Hashable {
+    public init(symbol: String, interval: BybitDataRefreshInterval, openTime: UInt64, open: Number, high: Number, low: Number, close: Number, volume: Number, turnover: Number) {
+        self.symbol = symbol
+        self.interval = interval
+        self.openTime = openTime
+        self.open = open
+        self.high = high
+        self.low = low
+        self.close = close
+        self.volume = volume
+        self.turnover = turnover
+    }
+    
     public let symbol: String
     public let interval: BybitDataRefreshInterval
     public let openTime: UInt64
@@ -92,6 +111,16 @@ public struct BybitKline: Codable, Hashable {
 }
 
 public struct BybitKlineMarkPrice: Codable {
+    public init(symbol: String, period: BybitPeriod, startAt: Number, open: Number, high: Number, low: Number, close: Number) {
+        self.symbol = symbol
+        self.period = period
+        self.startAt = startAt
+        self.open = open
+        self.high = high
+        self.low = low
+        self.close = close
+    }
+    
     public let symbol: String
     public let period: BybitPeriod
     public let startAt: Number
@@ -103,6 +132,16 @@ public struct BybitKlineMarkPrice: Codable {
 }
 
 public struct BybitKlineIndexPrice: Codable {
+    public init(symbol: String, period: BybitPeriod, openTime: UInt64, open: Number, high: Number, low: Number, close: Number) {
+        self.symbol = symbol
+        self.period = period
+        self.openTime = openTime
+        self.open = open
+        self.high = high
+        self.low = low
+        self.close = close
+    }
+    
     public let symbol: String
     public let period: BybitPeriod
     public let openTime: UInt64
@@ -114,6 +153,35 @@ public struct BybitKlineIndexPrice: Codable {
 }
 
 public struct BybitSymbolInformation: Codable, Equatable {
+    public init(symbol: String, nextFundingTime: Date?, lastTickDirection: BybitTickDirection, bidPrice: Number, askPrice: Number, lastPrice: Number, prevPrice24H: Number, price24HPcnt: Number, highPrice24H: Number, lowPrice24H: Number, prevPrice1H: Number, price1HPcnt: Number, markPrice: Number, indexPrice: Number, openInterest: Number, openValue: Number, totalTurnover: Number, turnover24H: Number, totalVolume: Number, volume24H: Number, fundingRate: Number, predictedFundingRate: Number, countdownHour: Number, deliveryFeeRate: Number, predictedDeliveryPrice: Number, deliveryTime: Number) {
+        self.symbol = symbol
+        self.nextFundingTime = nextFundingTime
+        self.lastTickDirection = lastTickDirection
+        self.bidPrice = bidPrice
+        self.askPrice = askPrice
+        self.lastPrice = lastPrice
+        self.prevPrice24H = prevPrice24H
+        self.price24HPcnt = price24HPcnt
+        self.highPrice24H = highPrice24H
+        self.lowPrice24H = lowPrice24H
+        self.prevPrice1H = prevPrice1H
+        self.price1HPcnt = price1HPcnt
+        self.markPrice = markPrice
+        self.indexPrice = indexPrice
+        self.openInterest = openInterest
+        self.openValue = openValue
+        self.totalTurnover = totalTurnover
+        self.turnover24H = turnover24H
+        self.totalVolume = totalVolume
+        self.volume24H = volume24H
+        self.fundingRate = fundingRate
+        self.predictedFundingRate = predictedFundingRate
+        self.countdownHour = countdownHour
+        self.deliveryFeeRate = deliveryFeeRate
+        self.predictedDeliveryPrice = predictedDeliveryPrice
+        self.deliveryTime = deliveryTime
+    }
+    
     public let symbol: String
     public let nextFundingTime: Date?
     public var lastTickDirection: BybitTickDirection
@@ -143,6 +211,15 @@ public struct BybitSymbolInformation: Codable, Equatable {
 }
 
 public struct BybitTradingRecords: Codable {
+    public init(id: Number, symbol: String, price: Number, qty: Number, side: BybitSide, time: Date) {
+        self.id = id
+        self.symbol = symbol
+        self.price = price
+        self.qty = qty
+        self.side = side
+        self.time = time
+    }
+    
     public let id: Number
     public let symbol: String
     public let price: Number
@@ -158,24 +235,56 @@ public enum BybitContractStatus: String, Codable, CaseIterable {
 }
 
 public struct LeverageFilter: Codable {
+    public init(minLeverage: Number, maxLeverage: Number, leverageStep: Number) {
+        self.minLeverage = minLeverage
+        self.maxLeverage = maxLeverage
+        self.leverageStep = leverageStep
+    }
+    
     public let minLeverage: Number
     public let maxLeverage: Number
     public let leverageStep: Number
 }
 
 public struct PriceFilter: Codable {
+    public init(minPrice: Number, maxPrice: Number, tickSize: Number) {
+        self.minPrice = minPrice
+        self.maxPrice = maxPrice
+        self.tickSize = tickSize
+    }
+    
     public let minPrice: Number
     public let maxPrice: Number
     public let tickSize: Number
 }
 
 public struct LotSizeFilter: Codable {
+    public init(maxTradingQty: Number, minTradingQty: Number, qtyStep: Number) {
+        self.maxTradingQty = maxTradingQty
+        self.minTradingQty = minTradingQty
+        self.qtyStep = qtyStep
+    }
+    
     public let maxTradingQty: Number
     public let minTradingQty: Number
     public let qtyStep: Number
 }
 
 public struct BybitQuerySymbol: Codable {
+    public init(name: String, alias: String, status: BybitContractStatus, baseCurrency: String, quoteCurrency: String, priceScale: Number, takerFee: Number, makerFee: Number, leverageFilter: LeverageFilter, priceFilter: PriceFilter, lotSizeFilter: LotSizeFilter) {
+        self.name = name
+        self.alias = alias
+        self.status = status
+        self.baseCurrency = baseCurrency
+        self.quoteCurrency = quoteCurrency
+        self.priceScale = priceScale
+        self.takerFee = takerFee
+        self.makerFee = makerFee
+        self.leverageFilter = leverageFilter
+        self.priceFilter = priceFilter
+        self.lotSizeFilter = lotSizeFilter
+    }
+    
     public let name: String
     public let alias: String
     public let status: BybitContractStatus
@@ -193,6 +302,13 @@ public struct BybitQuerySymbol: Codable {
 }
 
 public struct BybitOpenInterest: Codable {
+    public init(symbol: String, side: BybitSide, timestamp: Number, value: Number) {
+        self.symbol = symbol
+        self.side = side
+        self.timestamp = timestamp
+        self.value = value
+    }
+    
     public let symbol: String
     public let side: BybitSide
     public let timestamp: Number
@@ -200,12 +316,25 @@ public struct BybitOpenInterest: Codable {
 }
 
 public struct BybitBigDeal: Codable {
+    public init(symbol: String, timestamp: Number, openInterest: Number) {
+        self.symbol = symbol
+        self.timestamp = timestamp
+        self.openInterest = openInterest
+    }
+    
     public let symbol: String
     public let timestamp: Number
     public let openInterest: Number
 }
 
 public struct BybitLongShortRatio: Codable {
+    public init(symbol: String, buyRatio: Double, sellRatio: Double, timestamp: Number) {
+        self.symbol = symbol
+        self.buyRatio = buyRatio
+        self.sellRatio = sellRatio
+        self.timestamp = timestamp
+    }
+    
     public let symbol: String
     public let buyRatio: Double
     public let sellRatio: Double
