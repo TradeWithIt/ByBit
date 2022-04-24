@@ -9,23 +9,23 @@ import Foundation
 import API
 
 public struct BybitWssMessage: Encodable {
-    var op: String
-    var args: [String]
+    public var op: String
+    public var args: [String]
 }
 
 public struct BybitWssResponse<T: Decodable>: Decodable {
-    let topic: String
-    let data: T
+    public let topic: String
+    public let data: T
 }
 
 extension BybitWssResponse where T == [BybitKlineV2] {
-    var interval: BybitDataRefreshInterval? {
+    public var interval: BybitDataRefreshInterval? {
         let array = topic.split(separator: ".")
         guard array.count > 1 else { return nil }
         return BybitDataRefreshInterval(rawValue: String(array[array.count - 2]))
     }
     
-    var symbol: String? {
+    public var symbol: String? {
         let array = topic.split(separator: ".")
         guard array.count > 0 else { return nil }
         return array.last.map(String.init)
@@ -46,7 +46,7 @@ public struct BybitKlineV2: Decodable, Hashable {
 }
 
 public struct BybitDelta<T: Decodable>: Decodable {
-    let update: [T]
+    public let update: [T]
 }
 
 public struct BybitSymbolInformationDelta: Codable {
@@ -66,9 +66,9 @@ public struct BybitSymbolInformationDelta: Codable {
 }
 
 public struct BybitWallet: Decodable, Equatable {
-    let walletBalance: Number
+    public let walletBalance: Number
     /// Available balance = wallet balance - used margin
-    let availableBalance: Number
+    public let availableBalance: Number
 }
 
 extension BybitClient {

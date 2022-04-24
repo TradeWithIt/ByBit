@@ -36,90 +36,90 @@ public enum TimeInForce: String, Codable, CaseIterable {
 }
 
 public struct BybitCreateActiveOrder: Codable {
-    var side: BybitSide
-    var symbol: String
+    public var side: BybitSide
+    public var symbol: String
     /// Active order type
-    var orderType: OrderType
+    public var orderType: OrderType
     /// Order quantity in USD
-    var qty: Number
-    var timeInForce: TimeInForce
+    public var qty: Number
+    public var timeInForce: TimeInForce
     
     /// Order price
-    var price: Number?
+    public var price: Number?
     /// For a closing order. It can only reduce your position, not increase it. If the account has insufficient available balance when the closing order is triggered, then other active orders of similar contracts will be cancelled or reduced. It can be used to ensure your stop loss reduces your position regardless of current available margin.
-    var closeOnTrigger: Bool = false
+    public var closeOnTrigger: Bool = false
     /// Unique user-set order ID. Maximum length of 36 characters
-    var orderLinkId: String?
+    public var orderLinkId: String?
     /// Take profit price, only take effect upon opening the position
-    var takeProfit: Number?
+    public var takeProfit: Number?
     /// Stop loss price, only take effect upon opening the position
-    var stopLoss: Number?
+    public var stopLoss: Number?
     /// Take profit trigger price type, default: LastPrice
-    var tpTriggerBy: TriggerPriceType = .lastPrice
+    public var tpTriggerBy: TriggerPriceType = .lastPrice
     /// Stop loss trigger price type, default: LastPrice
-    var slTriggerBy: TriggerPriceType = .lastPrice
+    public var slTriggerBy: TriggerPriceType = .lastPrice
     /// True means your position can only reduce in size if this order is triggered
-    var reduceOnly: Bool = false
+    public var reduceOnly: Bool = false
 }
 
 public struct BybitActiveOrder: Codable {
-    var userId: Number
-    var symbol: String
-    var side: BybitSide
-    var orderType: OrderType
-    var qty: Number
-    var price: Number?
-    var timeInForce: TimeInForce
+    public var userId: Number
+    public var symbol: String
+    public var side: BybitSide
+    public var orderType: OrderType
+    public var qty: Number
+    public var price: Number?
+    public var timeInForce: TimeInForce
 }
 
 public struct BybitPosition: Codable {
-    var id: Number?
-    var positionIdx: Number
-    var mode: Number
-    var userId: Number
-    var riskId: Number
-    var symbol: String
-    var side: BybitSide
-    var size: Number
-    var positionValue: Number
-    var entryPrice: Number
-    var liqPrice: Number
-    var bustPrice: Number
-    var leverage: Number
-    var autoAddMargin: Number
-    var isIsolated: Bool?
-    var positionMargin: Number
-    var occClosingFee: Number
-    var realisedPnl: Number
-    var cumRealisedPnl: Number
-    var freeQty: Number
-    var tpSlMode: String
-    var deleverageIndicator: Number?
-    var unrealisedPnl: Number?
-    var takeProfit: Number
-    var stopLoss: Number
-    var trailingStop: Number
+    public var id: Number?
+    public var positionIdx: Number
+    public var mode: Number
+    public var userId: Number
+    public var riskId: Number
+    public var symbol: String
+    public var side: BybitSide
+    public var size: Number
+    public var positionValue: Number
+    public var entryPrice: Number
+    public var liqPrice: Number
+    public var bustPrice: Number
+    public var leverage: Number
+    public var autoAddMargin: Number
+    public var isIsolated: Bool?
+    public var positionMargin: Number
+    public var occClosingFee: Number
+    public var realisedPnl: Number
+    public var cumRealisedPnl: Number
+    public var freeQty: Number
+    public var tpSlMode: String
+    public var deleverageIndicator: Number?
+    public var unrealisedPnl: Number?
+    public var takeProfit: Number
+    public var stopLoss: Number
+    public var trailingStop: Number
 }
 
 public struct ClosedProfitAndLossRecords: Codable {
-    var id: Number
-    var userId: Number
-    var orderId: Number
-    var symbol: String
-    var side: BybitSide
-    var qty: Number
-    var orderPrice: Number
-    var orderType: OrderType
-    var execType: String
-    var closedSize: Number
-    var cumEntryValue: Number
-    var avgEntryPrice: Number
-    var cumExitValue: Number
-    var avgExitPrice: Number
-    var closedPnl: Number
-    var fillCount: Number
-    var leverage: Number
-    var createdAt: Number
+    public var id: Number
+    public var userId: Number
+    public var orderId: Number
+    public var symbol: String
+    public var side: BybitSide
+    public var qty: Number
+    public var orderPrice: Number
+    public var orderType: OrderType
+    public var execType: String
+    public var closedSize: Number
+    public var cumEntryValue: Number
+    public var avgEntryPrice: Number
+    public var cumExitValue: Number
+    public var avgExitPrice: Number
+    public var closedPnl: Number
+    public var fillCount: Number
+    public var leverage: Number
+    public var createdAt: Number
 }
 
 extension BybitClient {

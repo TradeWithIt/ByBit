@@ -9,19 +9,19 @@ import Foundation
 import API
 
 public struct BybitCoin: Codable {
-    var equity: Number
-    var availableBalance: Number
-    var usedMargin: Number
-    var orderMargin: Number
-    var positionMargin: Number
-    var occClosingFee: Number
-    var occFundingFee: Number
-    var walletBalance: Number
-    var realisedPnl: Number
-    var unrealisedPnl: Number
-    var cumRealisedPnl: Number
-    var givenCash: Number
-    var serviceCash: Number
+    public var equity: Number
+    public var availableBalance: Number
+    public var usedMargin: Number
+    public var orderMargin: Number
+    public var positionMargin: Number
+    public var occClosingFee: Number
+    public var occFundingFee: Number
+    public var walletBalance: Number
+    public var realisedPnl: Number
+    public var unrealisedPnl: Number
+    public var cumRealisedPnl: Number
+    public var givenCash: Number
+    public var serviceCash: Number
 }
 
 extension BybitClient {

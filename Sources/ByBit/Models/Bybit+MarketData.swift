@@ -31,7 +31,7 @@ public enum BybitTickDirection: String, Codable, CaseIterable {
 }
 
 public enum BybitDataRefreshInterval: String, Codable, CaseIterable, Equatable {
-    static var intervals: [BybitDataRefreshInterval] {
+    public static var intervals: [BybitDataRefreshInterval] {
         [.oneMin, .fiveMin, .fifteenMin, .thirtyMin, .sixtyMin, .fourHour, .oneDay]
     }
 
@@ -49,12 +49,12 @@ public enum BybitDataRefreshInterval: String, Codable, CaseIterable, Equatable {
     case oneMonth = "M"
     case oneWeek = "W"
     
-    var leftInterval: BybitDataRefreshInterval {
+    public var leftInterval: BybitDataRefreshInterval {
         guard let i = BybitDataRefreshInterval.intervals.firstIndex(of: self), (i - 1) >= 0 else { return .oneMin }
         return BybitDataRefreshInterval.intervals[i - 1]
     }
     
-    var rightInterval: BybitDataRefreshInterval {
+    public var rightInterval: BybitDataRefreshInterval {
         guard let i = BybitDataRefreshInterval.intervals.firstIndex(of: self), (i + 1) < BybitDataRefreshInterval.intervals.count else { return .oneDay }
         return BybitDataRefreshInterval.intervals[i + 1]
     }
