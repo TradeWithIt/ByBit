@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public struct BybitPublicClient: ClientProtocol {
     public let environment: BybitEnvironment

@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TradeWithIt/API",
       "state" : {
-        "revision" : "f37d7ce519316a9bee7ccb912f4c542d88b51bd2",
-        "version" : "1.0.0"
+        "branch" : "main",
+        "revision" : "2fd11851ea005749ab70947c4aa8d9356fa59bb2"
       }
     },
     {

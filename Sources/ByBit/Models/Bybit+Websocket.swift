@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public struct BybitWssMessage: Encodable {
     var op: String

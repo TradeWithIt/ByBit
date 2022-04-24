@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public enum OrderType: String, Codable, CaseIterable {
     case limit = "Limit"

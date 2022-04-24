@@ -7,6 +7,7 @@
 
 import Foundation
 import CryptoSwift
+import API
 
 extension String {
     func deletingPrefix(_ prefix: String) -> String {

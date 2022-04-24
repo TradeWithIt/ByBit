@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public struct BybitCoin: Codable {
     var equity: Number

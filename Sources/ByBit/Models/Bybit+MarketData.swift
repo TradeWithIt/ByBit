@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public enum BybitSide: String, Codable, CaseIterable {
     case none = "None"

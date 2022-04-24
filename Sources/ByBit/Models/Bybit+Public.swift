@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import API
 
 public struct BybitPublic<T: Codable>: Codable {
     public let retCode: Int

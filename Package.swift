@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "ByBit",
     platforms: [
-      .macOS(.v12), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)
+        .macOS(.v12), .iOS(.v15), .tvOS(.v15), .watchOS(.v8)
     ],
     products: [
         .library(
@@ -14,7 +14,8 @@ let package = Package(
             targets: ["ByBit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/TradeWithIt/API", from: "1.0.0"),
+        .package(url: "https://github.com/TradeWithIt/API", branch: "main"),
+//        .package(url: "https://github.com/TradeWithIt/API", from: "1.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", from: "1.5.0"),
     ],
     targets: [
